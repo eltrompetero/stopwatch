@@ -3,10 +3,8 @@
 # Email: edl56@cornell.edu
 
 from __future__ import division
-import sys
-import time
+import sys,os,time,subprocess
 import numpy as np
-import subprocess
 
 def convert_to_hms(dt):
     h=dt//3600
@@ -18,8 +16,15 @@ def convert_to_hms(dt):
 
 if __name__=='__main__':
     assert len(sys.argv)>1, "Must pass in at least one argument."
+    if not os.path.isfile('record.txt'):
+        subprocess.call('touch record.txt',shell=True)
 
     if sys.argv[1]=='start':
+        with open('record.txt','r') as f:
+            lines=f.readlines()
+            if len(lines)>0:
+                n=len(lines[-1].split(' '))
+                assert n==2 or n==0, "Already started stopwatch."
         subprocess.call('echo %s>>record.txt'%str(time.time()),shell=True)
     elif sys.argv[1]=='stop':
         with open('record.txt','r') as f:
