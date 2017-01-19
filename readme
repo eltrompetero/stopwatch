@@ -1,0 +1,9 @@
+Simple stopwatch program with start, stop, clear, and sum functions. Uses less
+energy than running a stopwatch program continuously.
+
+In the directory, there are shortcut commands that can be run directly with names
+start : start timer
+stop : stop timer
+clear : clear record of all start and stop intervals
+sum : sum all start-stop intervals in the record file "record.txt".
+
