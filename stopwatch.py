@@ -46,7 +46,7 @@ if __name__=='__main__':
             start,stop=[float(i) for i in L[:-2].split(' ')]
             dt+=stop-start
         hours,minutes,seconds=convert_to_hms(dt)
-        print 'You have worked for %d hours, %d minutes, and %d seconds.'%(hours,minutes,seconds)
+        print('You have worked for %d hours, %d minutes, and %d seconds.'%(hours,minutes,seconds))
     elif sys.argv[1]=='clear':
         open('record.txt','w').close()
     else:
